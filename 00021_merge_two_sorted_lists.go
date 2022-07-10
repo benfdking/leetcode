@@ -5,16 +5,10 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 		return nil
 	}
 	if list1 == nil {
-		return &ListNode{
-			Val:  list2.Val,
-			Next: list2.Next,
-		}
+		return list2
 	}
 	if list2 == nil {
-		return &ListNode{
-			Val:  list1.Val,
-			Next: list1.Next,
-		}
+		return list1
 	}
 	if list1.Val < list2.Val {
 		return &ListNode{
