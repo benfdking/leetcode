@@ -1,28 +1,29 @@
 package leetcode
 
-//Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-//
-//An input string is valid if:
-//Open brackets must be closed by the same type of brackets.
-//Open brackets must be closed in the correct order.
-//
-//Example 1:
-//Input: s = "()"
-//Output: true
-//
-//Example 2:
-//
-//Input: s = "()[]{}"
-//Output: true
-//
-//Example 3:
-//Input: s = "(]"
-//Output: false
-//
-//Constraints:
-//1 <= s.length <= 104
-//s consists of parentheses only '()[]{}'.
-
 func isValid(s string) bool {
+	return isValidSub(s, []uint8{})
+}
 
+func isValidSub(s string, ongoing []uint8) bool {
+	if len(s) == 0 {
+		return len(ongoing) == 0
+	}
+	// open
+	o := s[0]
+	if o == '(' || o == '{' || o == '[' {
+		return isValidSub(s[1:], append(ongoing, s[0]))
+	}
+	// close
+	if len(ongoing) == 0 {
+		return false
+	}
+	closeCharacter := ongoing[len(ongoing)-1]
+	if o == ')' && closeCharacter == '(' {
+		return isValidSub(s[1:], ongoing[0:len(ongoing)-1])
+	} else if o == ']' && closeCharacter == '[' {
+		return isValidSub(s[1:], ongoing[0:len(ongoing)-1])
+	} else if o == '}' && closeCharacter == '{' {
+		return isValidSub(s[1:], ongoing[0:len(ongoing)-1])
+	}
+	return false
 }

@@ -7,9 +7,17 @@ package leetcode
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-
-}
+//func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+//	l1 := list1
+//	l2 := list2
+//	out := &ListNode{}
+//	for {
+//
+//		if l1.Next == nil {
+//			return
+//		}
+//	}
+//}
 
 //You are given the heads of two sorted linked lists list1 and list2.
 //
