@@ -26,6 +26,11 @@ func Test_reverseList(t *testing.T) {
 			head: &ListNode{Val: 1, Next: &ListNode{Val: 2}},
 			want: &ListNode{Val: 2, Next: &ListNode{Val: 1}},
 		},
+		{
+			name: "base 2 entries",
+			head: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3}}},
+			want: &ListNode{Val: 3, Next: &ListNode{Val: 2, Next: &ListNode{Val: 1}}},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
