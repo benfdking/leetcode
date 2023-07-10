@@ -24,6 +24,22 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 			want: 1,
 		},
 		{
+			name: "left growth",
+			root: &TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val: 2,
+					Left: &TreeNode{
+						Val: 4,
+					},
+					Right: &TreeNode{
+						Val: 5,
+					},
+				},
+			},
+			want: 2,
+		},
+		{
 			name: "multiple nodes",
 			root: &TreeNode{
 				Val: 1,
