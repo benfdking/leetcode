@@ -9,6 +9,16 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 		want int
 	}{
 		{
+			name: "Example 0",
+			s:    "au",
+			want: 2,
+		},
+		{
+			name: "Example -1",
+			s:    "tmmzuxt",
+			want: 5,
+		},
+		{
 			"Example 1",
 			"abcabcbb",
 			3,
